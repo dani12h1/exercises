@@ -30,17 +30,27 @@ function prepareObjects(jsonData) {
       age: 0,
     };
 
+    // const animal = Object.create(Animal);
+
+    // animal.name = jsonObject.fullname.substring(0, jsonObject.fullname.indexOf(" "));
+    // //Rammer det første bogstav efter mellemrum med +1
+    // animal.type = jsonObject.fullname.substring(jsonObject.fullname.lastIndexOf(" ") + 1);
+    // // indexOf = første bogstav, the + 4 pladser
+    // animal.desc = jsonObject.fullname.substring(jsonObject.fullname.indexOf("the") + 4, jsonObject.fullname.lastIndexOf(" "));
+    // animal.age = jsonObject.age;
+
+    // allAnimals.push(animal);
+    // console.log(allAnimals);
+
     const animal = Object.create(Animal);
 
-    animal.name = jsonObject.fullname.substring(0, jsonObject.fullname.indexOf(" "));
-    //Rammer det første bogstav efter mellemrum med +1
-    animal.type = jsonObject.fullname.substring(jsonObject.fullname.lastIndexOf(" ") + 1);
-    // indexOf = første bogstav, the + 4 pladser
-    animal.desc = jsonObject.fullname.substring(jsonObject.fullname.indexOf("the") + 4, jsonObject.fullname.lastIndexOf(" "));
+    const text = jsonObject.fullname.split(" ");
     animal.age = jsonObject.age;
+    animal.name = text[0];
+    animal.type = text[3];
+    animal.desc = text[2];
 
     allAnimals.push(animal);
-    console.log(allAnimals);
 
     // TODO: MISSING CODE HERE !!!
   });
